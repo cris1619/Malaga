@@ -280,6 +280,149 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Footer Moderno */
+        .modern-footer {
+            background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+            color: white;
+            padding: 50px 0 30px;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modern-footer::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #20c997, #198754, #20c997);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-main {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 25px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .footer-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .copyright {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .footer-contact {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .contact-title {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-name {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: white;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .contact-detail {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .contact-detail a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-detail a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .footer-content i {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Responsive Footer */
+        @media (max-width: 768px) {
+            .modern-footer {
+                padding: 40px 0 25px;
+                margin-top: 60px;
+            }
+            
+            .footer-title {
+                font-size: 1.5rem;
+            }
+            
+            .contact-title {
+                font-size: 1.1rem;
+            }
+            
+            .footer-content {
+                gap: 25px;
+            }
+        }
     </style>
 </head>
 
@@ -557,6 +700,45 @@
             </div>
         </div>
     </div>
+
+    <!-- Footer Moderno -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <h5 class="footer-title">
+                        <i class="fas fa-crown me-2"></i>
+                        Málaga Ciudad Señorial
+                    </h5>
+                    <p class="copyright">
+                        <i class="fas fa-copyright me-2"></i>
+                        2025 Málaga Ciudad Señorial. Todos los derechos reservados.
+                    </p>
+                </div>
+                
+                <div class="footer-contact">
+                    <h6 class="contact-title">
+                        <i class="fas fa-address-card me-2"></i>
+                        Contacto
+                    </h6>
+                    <div class="contact-info">
+                        <p class="contact-name">
+                            <i class="fas fa-user me-2"></i>
+                            Cristian Fernando Solano Villamizar
+                        </p>
+                        <p class="contact-detail">
+                            <i class="fas fa-phone me-2"></i>
+                            <a href="tel:3143376449">3143376449</a>
+                        </p>
+                        <p class="contact-detail">
+                            <i class="fas fa-envelope me-2"></i>
+                            <a href="mailto:cfsv2018@gmail.com">cfsv2018@gmail.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Animación de scroll reveal
