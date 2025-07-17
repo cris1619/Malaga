@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Málaga</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+        }
+
+        /* Header moderno con gradiente y efectos */
+        .modern-header {
+            background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0;
+            box-shadow: 0 10px 30px rgba(25, 135, 84, 0.3);
+        }
+
+        .modern-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            animation: slideInDown 1s ease-out;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes slideInDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Contenedor con máximo ancho y padding responsivo */
+        .container-modern {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Grid moderno y responsivo */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        /* Tarjetas con diseño moderno */
+        .modern-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modern-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 60px rgba(25, 135, 84, 0.2);
+        }
+
+        .modern-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #198754, #20c997);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .modern-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-image-container {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .modern-card:hover .card-image {
+            transform: scale(1.1);
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(25, 135, 84, 0.1), rgba(32, 201, 151, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .modern-card:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .card-content {
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title-modern {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #198754;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .card-text-modern {
+            color: #6c757d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .card-text-modern ul {
+            padding-left: 1.5rem;
+            margin: 0;
+        }
+
+        .card-text-modern li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .card-text-modern li::marker {
+            color: #198754;
+        }
+
+        .card-footer-modern {
+            background: linear-gradient(135deg, #e9f7ef 0%, #f8f9fa 100%);
+            padding: 20px 30px;
+            border-top: 1px solid rgba(25, 135, 84, 0.1);
+            margin-top: auto;
+        }
+
+        .footer-text {
+            color: #198754;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-text i {
+            color: #20c997;
+        }
+
+        /* Animaciones de entrada */
+        .animate-in {
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .modern-header {
+                padding: 60px 0;
+            }
+            
+            .container-modern {
+                padding: 40px 15px;
+            }
+        }
+
+        /* Efectos adicionales */
+        .pulse-effect {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Scroll reveal */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="modern-header">
+        <div class="container">
+            <div class="header-content text-center">
+                <h1 class="main-title">
+                    <i class="fas fa-map-marked-alt me-3"></i>
+                    Conoce Málaga
+                </h1>
+                <p class="subtitle">Los lugares más atractivos para visitar nuestro querido municipio</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-modern">
+        <div class="cards-grid">
+            <!-- Tarjeta 1 -->
+            <div class="modern-card scroll-reveal">
+                <div class="card-image-container">
+                    <img src="img/bandera.png" class="card-image" alt="Bandera">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h5 class="card-title-modern">
+                        <i class="fas fa-flag me-2"></i>
+                        Bandera
+                    </h5>
+                    <div class="card-text-modern">
+                        <ul>
+                            <li>Verde: esperanza y riqueza natural.</li>
+                            <li>Blanco: paz y pureza.</li>
+                            <li>Algunas versiones incluyen el escudo.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer-modern">
+                    <p class="footer-text">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Bandera de Málaga, Santander.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="modern-card scroll-reveal">
+                <div class="card-image-container">
+                    <img src="img/vista_en_santander.png" class="card-image" alt="vista_en_santander">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h5 class="card-title-modern">
+                        <i class="fas fa-globe-americas me-2"></i>
+                        Ubicación Geográfica
+                    </h5>
+                    <p class="card-text-modern">Málaga se encuentra en el nororiente del departamento de Santander, Colombia.</p>
+                </div>
+                <div class="card-footer-modern">
+                    <p class="footer-text">
+                        <i class="fas fa-compass"></i>
+                        Málaga, destacado en rojo, se ubica al nororiente de Santander.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="modern-card scroll-reveal">
+                <div class="card-image-container">
+                    <img src="img/hotel.png" class="card-image" alt="Hotel">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h5 class="card-title-modern">
+                        <i class="fas fa-bed me-2"></i>
+                        Hotel
+                    </h5>
+                    <p class="card-text-modern">Hospedaje cómodo para turistas y visitantes, ubicado en el corazón del municipio.</p>
+                </div>
+                <div class="card-footer-modern">
+                    <p class="footer-text">
+                        <i class="fas fa-hotel"></i>
+                        Hotel Big Beng en Málaga
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4 -->
+            <div class="modern-card scroll-reveal">
+                <div class="card-image-container">
+                    <img src="img/parque.png" class="card-image" alt="Parque">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h5 class="card-title-modern">
+                        <i class="fas fa-tree me-2"></i>
+                        Parque Principal
+                    </h5>
+                    <p class="card-text-modern">Lugar de encuentro y esparcimiento con zonas verdes y espacio para eventos culturales.</p>
+                </div>
+                <div class="card-footer-modern">
+                    <p class="footer-text">
+                        <i class="fas fa-users"></i>
+                        Plaza Municipal Custodio García Rovira
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 5 -->
+            <div class="modern-card scroll-reveal">
+                <div class="card-image-container">
+                    <img src="img/aeropuerto.png" class="card-image" alt="aeropuerto">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h5 class="card-title-modern">
+                        <i class="fas fa-plane me-2"></i>
+                        Aeropuerto
+                    </h5>
+                    <p class="card-text-modern">Terminal aérea que conecta la provincia con otras regiones del país.</p>
+                </div>
+                <div class="card-footer-modern">
+                    <p class="footer-text">
+                        <i class="fas fa-plane-departure"></i>
+                        Única Terminal aérea de la provincia.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 6 -->
+            <div class="modern-card scroll-reveal">
+                <div class="card-image-container">
+                    <img src="img/alcaldia.png" class="card-image" alt="alcaldia">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h5 class="card-title-modern">
+                        <i class="fas fa-building me-2"></i>
+                        Alcaldía
+                    </h5>
+                    <p class="card-text-modern">Centro administrativo desde donde se lidera el desarrollo del municipio.</p>
+                </div>
+                <div class="card-footer-modern">
+                    <p class="footer-text">
+                        <i class="fas fa-city"></i>
+                        Alcaldía Principal de Málaga
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 7 -->
+            <div class="modern-card scroll-reveal">
+                <div class="card-image-container">
+                    <img src="img/asilo.png" class="card-image" alt="asilo">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h5 class="card-title-modern">
+                        <i class="fas fa-heart me-2"></i>
+                        Asilo
+                    </h5>
+                    <p class="card-text-modern">Espacio dedicado al cuidado de adultos mayores, con atención humanitaria.</p>
+                </div>
+                <div class="card-footer-modern">
+                    <p class="footer-text">
+                        <i class="fas fa-hands-helping"></i>
+                        Asilo San Antonio
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 8 -->
+            <div class="modern-card scroll-reveal">
+                <div class="card-image-container">
+                    <img src="img/Catedral.png" class="card-image" alt="Catedral">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h5 class="card-title-modern">
+                        <i class="fas fa-church me-2"></i>
+                        Catedral
+                    </h5>
+                    <p class="card-text-modern">Imponente templo religioso y símbolo histórico-cultural de Málaga.</p>
+                </div>
+                <div class="card-footer-modern">
+                    <p class="footer-text">
+                        <i class="fas fa-cross"></i>
+                        Iglesia Principal, no solo de Málaga sino de la diócesis Málaga-Soatá.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 9 -->
+            <div class="modern-card scroll-reveal">
+                <div class="card-image-container">
+                    <img src="img/cotrans.png" class="card-image" alt="cotrans">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h5 class="card-title-modern">
+                        <i class="fas fa-bus me-2"></i>
+                        Transportes Contrans
+                    </h5>
+                    <p class="card-text-modern">Terminal de transporte que moviliza pasajeros hacia distintas zonas del país.</p>
+                </div>
+                <div class="card-footer-modern">
+                    <p class="footer-text">
+                        <i class="fas fa-route"></i>
+                        Principal empresa de transporte de los Malagueños
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 10 -->
+            <div class="modern-card scroll-reveal">
+                <div class="card-image-container">
+                    <img src="img/hospital.png" class="card-image" alt="hospital">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h5 class="card-title-modern">
+                        <i class="fas fa-hospital me-2"></i>
+                        Hospital
+                    </h5>
+                    <p class="card-text-modern">Centro de salud que atiende las necesidades médicas de toda la región García Rovira.</p>
+                </div>
+                <div class="card-footer-modern">
+                    <p class="footer-text">
+                        <i class="fas fa-medical-bag"></i>
+                        Hospital Regional García Rovira
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 11 -->
+            <div class="modern-card scroll-reveal">
+                <div class="card-image-container">
+                    <img src="img/virgen.png" class="card-image" alt="Virgen del Carmen">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h5 class="card-title-modern">
+                        <i class="fas fa-monument me-2"></i>
+                        Monumento de la Virgen del Carmen
+                    </h5>
+                    <p class="card-text-modern">La imagen muestra un monumento en honor a la Virgen del Carmen, patrona de los conductores y transportadores.</p>
+                </div>
+                <div class="card-footer-modern">
+                    <p class="footer-text">
+                        <i class="fas fa-praying-hands"></i>
+                        Homenaje al gremio transportador - Símbolo de protección.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 12 -->
+            <div class="modern-card scroll-reveal">
+                <div class="card-image-container">
+                    <img src="img/peña.png" class="card-image" alt="La Peña">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h5 class="card-title-modern">
+                        <i class="fas fa-mountain me-2"></i>
+                        La Peña de Málaga
+                    </h5>
+                    <p class="card-text-modern">La imagen presenta una formación montañosa conocida como La Peña, ubicada en las cercanías del municipio de Málaga, Santander.</p>
+                </div>
+                <div class="card-footer-modern">
+                    <p class="footer-text">
+                        <i class="fas fa-hiking"></i>
+                        Formación rocosa icónica del paisaje santandereano.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animación de scroll reveal
+        function scrollReveal() {
+            const reveals = document.querySelectorAll('.scroll-reveal');
+            
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveal.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('revealed');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', scrollReveal);
+        
+        // Activar animaciones al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            scrollReveal();
+            
+            // Agregar delay escalonado a las tarjetas
+            const cards = document.querySelectorAll('.modern-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+
+</html>
