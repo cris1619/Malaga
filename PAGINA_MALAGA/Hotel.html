@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Big Ben - Málaga, Santander</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { 
+      font-family: 'Poppins', sans-serif; 
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 2rem 0;
+    }
+    
+    .main-container {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      padding: 3rem;
+      margin: 2rem auto;
+      max-width: 1100px;
+    }
+    
+    .page-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #667eea;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .hotel-subtitle {
+      font-size: 1.1rem;
+      color: #7f8c8d;
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+    
+    .rating-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .stars {
+      color: #f39c12;
+      font-size: 1.5rem;
+    }
+    
+    .rating-text {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+    
+    .categoria {
+      display: inline-block;
+      background: linear-gradient(135deg, #f39c12, #e67e22);
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px rgba(243, 156, 18, 0.3);
+    }
+    
+    .imagen-container {
+      position: relative;
+      margin: 2rem 0;
+      padding: 2rem;
+      background: #f8f9fa;
+      border-radius: 15px;
+      box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .imagen-hotel {
+      width: 100%;
+      max-width: 700px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+      border: 3px solid #667eea;
+      display: block;
+      margin: 0 auto;
+    }
+    
+    .descripcion-principal {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      margin: 2rem 0;
+      border-left: 5px solid #667eea;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    
+    .descripcion-principal h3 {
+      color: #667eea;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .descripcion-principal p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #34495e;
+      margin-bottom: 1rem;
+    }
+    
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .servicio-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      border-top: 4px solid #667eea;
+    }
+    
+    .servicio-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .servicio-icon {
+      font-size: 2.5rem;
+      color: #667eea;
+      margin-bottom: 1rem;
+    }
+    
+    .servicio-titulo {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+    
+    .servicio-descripcion {
+      color: #7f8c8d;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    
+    .habitaciones-section {
+      background: linear-gradient(135deg, #667eea20, #764ba220);
+      padding: 2rem;
+      border-radius: 15px;
+      margin: 2rem 0;
+      border: 1px solid #667eea30;
+    }
+    
+    .habitaciones-section h3 {
+      color: #667eea;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .habitacion-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .feature-item {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .feature-icon {
+      color: #667eea;
+      font-size: 1.2rem;
+    }
+    
+    .contacto-section {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      margin: 2rem 0;
+      border-left: 5px solid #e74c3c;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    
+    .contacto-section h3 {
+      color: #e74c3c;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .contacto-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .contacto-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: #f8f9fa;
+      border-radius: 10px;
+    }
+    
+    .contacto-icon {
+      font-size: 1.5rem;
+      color: #e74c3c;
+      background: white;
+      padding: 0.5rem;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .mision-vision {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      margin: 2rem 0;
+      border-left: 5px solid #27ae60;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    
+    .mision-vision h3 {
+      color: #27ae60;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .mision-vision-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    
+    .mision, .vision {
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 10px;
+    }
+    
+    .mision h4, .vision h4 {
+      color: #27ae60;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .btn-volver {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      color: white;
+      font-weight: 600;
+      margin-top: 2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    }
+    
+    .btn-volver:hover {
+      background: linear-gradient(135deg, #764ba2, #667eea);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+      color: white;
+    }
+    
+    @media (max-width: 768px) {
+      .main-container {
+        padding: 2rem 1rem;
+        margin: 1rem;
+      }
+      
+      .page-title {
+        font-size: 2.2rem;
+      }
+      
+      .servicios-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .rating-section {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="main-container">
+      <div class="text-center">
+        <h1 class="page-title">Hotel Big Ben</h1>
+        <p class="hotel-subtitle">Málaga, Santander - Colombia</p>
+        
+        <div class="rating-section">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <span class="rating-text">Hotel 4 Estrellas</span>
+        </div>
+        
+        <div class="categoria">
+          <i class="fas fa-bed me-2"></i>Hospedaje Premium
+        </div>
+      </div>
+      
+      <div class="imagen-container">
+        <img src="img/hotel.png" alt="Hotel Big Ben - Málaga, Santander" class="imagen-hotel">
+      </div>
+      
+      <div class="descripcion-principal">
+        <h3>
+          <i class="fas fa-hotel"></i>
+          Acerca del Hotel
+        </h3>
+        <p>El Hotel Big Ben Málaga Santander es un acogedor y moderno hotel de 4 estrellas ubicado en el corazón de Málaga, Colombia. Este establecimiento es ideal tanto para turistas como para viajeros de negocios, ofreciendo una amplia gama de servicios que garantizan una estancia cómoda y placentera.</p>
+        <p>Bienvenidos a este hermoso, confortable y exclusivo hotel ubicado en la reconocida zona rosa de Málaga Santander, bello destino turístico y cultural que se levanta sobre la cordillera oriental a 370 km de Bogotá y 204 km de Bucaramanga.</p>
+      </div>
+      
+      <div class="servicios-grid">
+        <div class="servicio-card">
+          <div class="servicio-icon">
+            <i class="fas fa-concierge-bell"></i>
+          </div>
+          <div class="servicio-titulo">Recepción 24 Horas</div>
+          <div class="servicio-descripcion">Atención personalizada las 24 horas del día para garantizar tu comodidad y seguridad.</div>
+        </div>
+        
+        <div class="servicio-card">
+          <div class="servicio-icon">
+            <i class="fas fa-wifi"></i>
+          </div>
+          <div class="servicio-titulo">WiFi Gratuito</div>
+          <div class="servicio-descripcion">Conexión a internet gratuita en todas las áreas del hotel para mantenerte conectado.</div>
+        </div>
+        
+        <div class="servicio-card">
+          <div class="servicio-icon">
+            <i class="fas fa-utensils"></i>
+          </div>
+          <div class="servicio-titulo">Servicio de Habitaciones</div>
+          <div class="servicio-descripcion">Disfruta de nuestro servicio de habitaciones para una experiencia más cómoda.</div>
+        </div>
+        
+        <div class="servicio-card">
+          <div class="servicio-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="servicio-titulo">Habitaciones Familiares</div>
+          <div class="servicio-descripcion">Espacios amplios y cómodos especialmente diseñados para familias.</div>
+        </div>
+        
+        <div class="servicio-card">
+          <div class="servicio-icon">
+            <i class="fas fa-dumbbell"></i>
+          </div>
+          <div class="servicio-titulo">Gimnasio</div>
+          <div class="servicio-descripcion">Mantente en forma durante tu estancia con nuestro gimnasio equipado.</div>
+        </div>
+        
+        <div class="servicio-card">
+          <div class="servicio-icon">
+            <i class="fas fa-car"></i>
+          </div>
+          <div class="servicio-titulo">Estacionamiento</div>
+          <div class="servicio-descripcion">Estacionamiento seguro y gratuito para la comodidad de nuestros huéspedes.</div>
+        </div>
+      </div>
+      
+      <div class="habitaciones-section">
+        <h3>
+          <i class="fas fa-door-open"></i>
+          Nuestras Habitaciones
+        </h3>
+        <p>Sumérgete en el lujo y la tranquilidad en nuestras amplias habitaciones, diseñadas para ofrecerte el máximo confort durante tu estancia. Con vistas impresionantes y comodidades modernas, cada habitación es un refugio de serenidad.</p>
+        
+        <div class="habitacion-features">
+          <div class="feature-item">
+            <i class="fas fa-tv feature-icon"></i>
+            <span>TV de Pantalla Plana</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-bed feature-icon"></i>
+            <span>Cama King Size</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-hot-tub feature-icon"></i>
+            <span>Jacuzzi</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-shower feature-icon"></i>
+            <span>Baño Privado con Ducha</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-heart feature-icon"></i>
+            <span>Decoración para Ocasiones Especiales</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-mountain feature-icon"></i>
+            <span>Vistas Impresionantes</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contacto-section">
+        <h3>
+          <i class="fas fa-phone"></i>
+          Información de Contacto
+        </h3>
+        <div class="contacto-info">
+          <div class="contacto-item">
+            <i class="fas fa-map-marker-alt contacto-icon"></i>
+            <div>
+              <strong>Dirección:</strong><br>
+              Cra 8 N° 13-60
+            </div>
+          </div>
+          <div class="contacto-item">
+            <i class="fas fa-phone contacto-icon"></i>
+            <div>
+              <strong>Teléfonos:</strong><br>
+              (+57) 310 324 5066<br>
+              310 349 6196
+            </div>
+          </div>
+          <div class="contacto-item">
+            <i class="fas fa-envelope contacto-icon"></i>
+            <div>
+              <strong>Email:</strong><br>
+              Hotelbigben2@gmail.com<br>
+              luzmar2606@hotmail.com
+            </div>
+          </div>
+          <div class="contacto-item">
+            <i class="fas fa-clock contacto-icon"></i>
+            <div>
+              <strong>Horario:</strong><br>
+              24 horas - Todos los días
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mision-vision">
+        <h3>
+          <i class="fas fa-bullseye"></i>
+          Nuestra Filosofía
+        </h3>
+        <div class="mision-vision-content">
+          <div class="mision">
+            <h4><i class="fas fa-heart me-2"></i>Misión</h4>
+            <p>Satisfacer las necesidades de nuestros clientes y huéspedes superando sus expectativas, brindándoles servicios de calidad y amabilidad, estamos en continua innovación para contribuir a nuestro medio ambiente. Aportamos al desarrollo económico y turístico de la Región, generando empleo y dar a conocer nuestra diversidad de productos y cultura.</p>
+          </div>
+          <div class="vision">
+            <h4><i class="fas fa-star me-2"></i>Visión</h4>
+            <p>Ser reconocido como el Hotel líder en la provincia de García Rovira, siendo la mejor opción para su descanso en Málaga Santander.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center">
+        <a href="index.html" class="btn btn-volver">
+          <i class="fas fa-arrow-left me-2"></i>Volver al inicio
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

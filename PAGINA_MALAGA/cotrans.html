@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cotrans Málaga - Acercando Destinos</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e3f2fd 0%, #f8f9fa 100%);
+      min-height: 100vh;
+      padding: 2rem 0;
+    }
+
+    .main-container {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      padding: 3rem;
+      margin: 2rem auto;
+      max-width: 1000px;
+    }
+
+    .page-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1565c0;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #7f8c8d;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .categoria {
+      display: inline-block;
+      background: linear-gradient(135deg, #1565c0, #1976d2);
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px rgba(21, 101, 192, 0.3);
+    }
+
+    .imagen-container {
+      position: relative;
+      margin: 2rem 0;
+      padding: 2rem;
+      background: #f8f9fa;
+      border-radius: 15px;
+      box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .imagen-ubicacion {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      border: 3px solid #1565c0;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .info-general {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      margin: 2rem 0;
+      border-left: 5px solid #1565c0;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-general h3 {
+      color: #1565c0;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-general p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #34495e;
+    }
+
+    .btn-volver {
+      background: linear-gradient(135deg, #1565c0, #1976d2);
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      color: white;
+      font-weight: 600;
+      margin-top: 2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(21, 101, 192, 0.3);
+    }
+
+    .btn-volver:hover {
+      background: linear-gradient(135deg, #1976d2, #2196f3);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(21, 101, 192, 0.4);
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .main-container {
+        padding: 2rem 1rem;
+        margin: 1rem;
+      }
+
+      .page-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="main-container">
+      <div class="text-center">
+        <h1 class="page-title">Cotrans Málaga</h1>
+        <p class="subtitle">Acercando Destinos desde 1965</p>
+        <div class="categoria">
+          <i class="fas fa-bus me-2"></i>Transporte Regional
+        </div>
+      </div>
+
+      <div class="imagen-container">
+        <img src="img/cotrans.png" alt="Cotrans Málaga" class="imagen-ubicacion">
+      </div>
+
+      <div class="info-general">
+        <h3><i class="fas fa-history"></i>Historia y Fundación</h3>
+        <p>
+          La Cooperativa de Transportadores COTRANS fue fundada el <strong>5 de julio de 1965</strong> en Málaga, Santander, como respuesta a la necesidad de contar con transporte terrestre de pasajeros seguro, cómodo y eficiente para los habitantes del municipio y sus alrededores. Originalmente constituida como <strong>Autotransportes Ltda</strong>, cambió su razón social en 1981 a <strong>COTRANS</strong>, consolidándose como una de las marcas más reconocidas en la región.
+        </p>
+      </div>
+
+      <div class="info-general">
+        <h3><i class="fas fa-road"></i>Servicios y Misión</h3>
+        <p>
+          COTRANS ofrece transporte terrestre de pasajeros, conectando a Málaga con diversos destinos departamentales y nacionales. Su misión es brindar un servicio con altos estándares de seguridad, responsabilidad social y comodidad para los usuarios, destacándose como una organización solidaria y eficiente.
+        </p>
+      </div>
+
+      <div class="info-general">
+        <h3><i class="fas fa-hands-helping"></i>Evolución Cooperativa</h3>
+        <p>
+          A lo largo de los años, COTRANS ha adaptado su estructura jurídica y organizacional, fortaleciendo su identidad como cooperativa y transformándose en una marca querida y posicionada por los malagueños. Su espíritu solidario sigue vigente, impulsando el desarrollo del transporte y la integración regional.
+        </p>
+      </div>
+
+      <div class="text-center">
+        <a href="index.html" class="btn btn-volver">
+          <i class="fas fa-arrow-left me-2"></i>Volver al inicio
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

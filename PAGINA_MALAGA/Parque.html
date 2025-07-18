@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parque Principal - Málaga, Santander</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* MISMO ESTILO DEL CÓDIGO ANTERIOR */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e3f2fd 0%, #f8f9fa 100%);
+      min-height: 100vh;
+      padding: 2rem 0;
+    }
+
+    .main-container {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      padding: 3rem;
+      margin: 2rem auto;
+      max-width: 1000px;
+    }
+
+    .page-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1565c0;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #7f8c8d;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .categoria {
+      display: inline-block;
+      background: linear-gradient(135deg, #1565c0, #1976d2);
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px rgba(21, 101, 192, 0.3);
+    }
+
+    .imagen-container {
+      position: relative;
+      margin: 2rem 0;
+      padding: 2rem;
+      background: #f8f9fa;
+      border-radius: 15px;
+      box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .imagen-ubicacion {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      border: 3px solid #1565c0;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .info-general h3,
+    .caracteristicas-destacadas h3,
+    .turismo-section h3 {
+      color: #1565c0;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-general, .caracteristicas-destacadas, .turismo-section {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      margin: 2rem 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .info-general {
+      border-left: 5px solid #1565c0;
+    }
+
+    .turismo-section {
+      border-left: 5px solid #4caf50;
+    }
+
+    .info-general p, .turismo-section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #34495e;
+    }
+
+    .caracteristicas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .caracteristica-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .caracteristica-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .caracteristica-icon {
+      font-size: 2rem;
+      color: #1976d2;
+      margin-bottom: 1rem;
+    }
+
+    .caracteristica-titulo {
+      font-weight: 600;
+      color: #1565c0;
+      margin-bottom: 0.5rem;
+    }
+
+    .caracteristica-texto {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+
+    .btn-volver {
+      background: linear-gradient(135deg, #1565c0, #1976d2);
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      color: white;
+      font-weight: 600;
+      margin-top: 2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(21, 101, 192, 0.3);
+    }
+
+    .btn-volver:hover {
+      background: linear-gradient(135deg, #1976d2, #2196f3);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(21, 101, 192, 0.4);
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .main-container {
+        padding: 2rem 1rem;
+        margin: 1rem;
+      }
+      
+      .page-title {
+        font-size: 2rem;
+      }
+
+      .caracteristicas-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="main-container">
+      <div class="text-center">
+        <h1 class="page-title">Parque Principal</h1>
+        <p class="subtitle">Málaga, Santander - Colombia</p>
+        <div class="categoria">
+          <i class="fas fa-tree me-2"></i>Espacio Emblemático
+        </div>
+      </div>
+
+      <div class="imagen-container">
+        <img src="img/parque.png" alt="Parque Principal de Málaga, Santander" class="imagen-ubicacion">
+      </div>
+
+      <div class="info-general">
+        <h3><i class="fas fa-info-circle"></i>Descripción General</h3>
+        <p>El <strong>Parque de Málaga</strong>, ubicado en el centro del municipio, es un espacio verde fundamental para la vida cotidiana y cultural de la localidad. Este sitio sirve como punto de encuentro, lugar de recreación y conexión con la naturaleza, enmarcado por paisajes montañosos que realzan su belleza.</p>
+      </div>
+
+      <div class="caracteristicas-destacadas">
+        <h3><i class="fas fa-star"></i>Características del Parque</h3>
+        <div class="caracteristicas-grid">
+          <div class="caracteristica-card">
+            <div class="caracteristica-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="caracteristica-titulo">Ubicación Central</div>
+            <div class="caracteristica-texto">Situado en el corazón de Málaga, fácil acceso para residentes y visitantes.</div>
+          </div>
+
+          <div class="caracteristica-card">
+            <div class="caracteristica-icon"><i class="fas fa-users"></i></div>
+            <div class="caracteristica-titulo">Espacio de Encuentro</div>
+            <div class="caracteristica-texto">Ideal para paseos, reuniones comunitarias y descanso.</div>
+          </div>
+
+          <div class="caracteristica-card">
+            <div class="caracteristica-icon"><i class="fas fa-mountain"></i></div>
+            <div class="caracteristica-titulo">Entorno Natural</div>
+            <div class="caracteristica-texto">Rodeado por la geografía montañosa típica de la región andina.</div>
+          </div>
+
+          <div class="caracteristica-card">
+            <div class="caracteristica-icon"><i class="fas fa-mask"></i></div>
+            <div class="caracteristica-titulo">Cultura Viva</div>
+            <div class="caracteristica-texto">Escenario de expresiones culturales, música y tradiciones locales.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="turismo-section">
+        <h3><i class="fas fa-seedling"></i>Contexto del Municipio</h3>
+        <p>Málaga es reconocida por su riqueza natural, cultural y agroindustrial. Se destaca por la producción de frutas como piña, palma de aceite y naranja, así como por sus tradiciones artesanales. En las afueras, se fabrican productos como ladrillos y cal hidratada. Además, es un destino turístico que ofrece actividades como parapente y visitas al Parque Nacional del Chicamocha.</p>
+      </div>
+
+      <div class="text-center">
+        <a href="index.html" class="btn btn-volver">
+          <i class="fas fa-arrow-left me-2"></i>Volver al inicio
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

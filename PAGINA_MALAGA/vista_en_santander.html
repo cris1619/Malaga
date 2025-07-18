@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ubicación Geográfica - Málaga, Santander</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { 
+      font-family: 'Poppins', sans-serif; 
+      background: linear-gradient(135deg, #e3f2fd 0%, #f8f9fa 100%);
+      min-height: 100vh;
+      padding: 2rem 0;
+    }
+    
+    .main-container {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      padding: 3rem;
+      margin: 2rem auto;
+      max-width: 1000px;
+    }
+    
+    .page-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1565c0;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+      color: #7f8c8d;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+    
+    .categoria {
+      display: inline-block;
+      background: linear-gradient(135deg, #1565c0, #1976d2);
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px rgba(21, 101, 192, 0.3);
+    }
+    
+    .imagen-container {
+      position: relative;
+      margin: 2rem 0;
+      padding: 2rem;
+      background: #f8f9fa;
+      border-radius: 15px;
+      box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .imagen-ubicacion {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      border: 3px solid #1565c0;
+      display: block;
+      margin: 0 auto;
+    }
+    
+    .info-general {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      margin: 2rem 0;
+      border-left: 5px solid #1565c0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .info-general h3 {
+      color: #1565c0;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .info-general p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #34495e;
+      margin-bottom: 1.5rem;
+    }
+    
+    .ubicacion-especifica {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .dato-ubicacion {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      border-left: 4px solid #1976d2;
+    }
+    
+    .dato-ubicacion:hover {
+      transform: translateY(-3px);
+    }
+    
+    .dato-label {
+      font-size: 0.9rem;
+      color: #7f8c8d;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .dato-valor {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1565c0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .caracteristicas-destacadas {
+      background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
+      padding: 2rem;
+      border-radius: 15px;
+      margin: 2rem 0;
+      border: 1px solid #e1f5fe;
+    }
+    
+    .caracteristicas-destacadas h3 {
+      color: #1565c0;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .caracteristicas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .caracteristica-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    
+    .caracteristica-card:hover {
+      transform: translateY(-2px);
+    }
+    
+    .caracteristica-icon {
+      font-size: 2rem;
+      color: #1976d2;
+      margin-bottom: 1rem;
+    }
+    
+    .caracteristica-titulo {
+      font-weight: 600;
+      color: #1565c0;
+      margin-bottom: 0.5rem;
+    }
+    
+    .caracteristica-texto {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+    
+    .turismo-section {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      margin: 2rem 0;
+      border-left: 5px solid #4caf50;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .turismo-section h3 {
+      color: #2e7d32;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .actividades-turisticas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .actividad-tag {
+      background: #e8f5e8;
+      color: #2e7d32;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid #4caf50;
+    }
+    
+    .btn-volver {
+      background: linear-gradient(135deg, #1565c0, #1976d2);
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      color: white;
+      font-weight: 600;
+      margin-top: 2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(21, 101, 192, 0.3);
+    }
+    
+    .btn-volver:hover {
+      background: linear-gradient(135deg, #1976d2, #2196f3);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(21, 101, 192, 0.4);
+      color: white;
+    }
+    
+    .nota-correccion {
+      background: #fff3cd;
+      border: 1px solid #ffeaa7;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .nota-correccion h4 {
+      color: #856404;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    @media (max-width: 768px) {
+      .main-container {
+        padding: 2rem 1rem;
+        margin: 1rem;
+      }
+      
+      .page-title {
+        font-size: 2rem;
+      }
+      
+      .ubicacion-especifica {
+        grid-template-columns: 1fr;
+      }
+      
+      .caracteristicas-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .actividades-turisticas {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="main-container">
+      <div class="text-center">
+        <h1 class="page-title">Ubicación Geográfica</h1>
+        <p class="subtitle">Málaga, Santander - Colombia</p>
+        <div class="categoria">
+          <i class="fas fa-map-marker-alt me-2"></i>Información Geográfica
+        </div>
+      </div>
+      
+      <div class="imagen-container">
+        <img src="img/vista_en_santander.png" alt="Vista panorámica de Málaga, Santander" class="imagen-ubicacion">
+      </div>
+      
+      <div class="info-general">
+        <h3>
+          <i class="fas fa-info-circle"></i>
+          Descripción General
+        </h3>
+        <p>Málaga es un municipio colombiano ubicado al <strong>suroriente del departamento de Santander, en la provincia de García Rovira</strong>. Está situado sobre la Troncal Central del Norte, a 124 km de Bucaramanga. Es una ciudad en la región andina de Colombia, reconocida por su patrimonio histórico y belleza natural.</p>
+      </div>
+      
+      <div class="ubicacion-especifica">
+        <div class="dato-ubicacion">
+          <div class="dato-label">Departamento</div>
+          <div class="dato-valor">
+            <i class="fas fa-map"></i>
+            Santander
+          </div>
+        </div>
+        
+        <div class="dato-ubicacion">
+          <div class="dato-label">Provincia</div>
+          <div class="dato-valor">
+            <i class="fas fa-flag"></i>
+            García Rovira
+          </div>
+        </div>
+        
+        <div class="dato-ubicacion">
+          <div class="dato-label">Región</div>
+          <div class="dato-valor">
+            <i class="fas fa-mountain"></i>
+            Andina de Colombia
+          </div>
+        </div>
+        
+        <div class="dato-ubicacion">
+          <div class="dato-label">Distancia a Bucaramanga</div>
+          <div class="dato-valor">
+            <i class="fas fa-road"></i>
+            124 km
+          </div>
+        </div>
+        
+        <div class="dato-ubicacion">
+          <div class="dato-label">Vía de Acceso</div>
+          <div class="dato-valor">
+            <i class="fas fa-route"></i>
+            Troncal Central del Norte
+          </div>
+        </div>
+        
+        <div class="dato-ubicacion">
+          <div class="dato-label">Posición</div>
+          <div class="dato-valor">
+            <i class="fas fa-compass"></i>
+            Suroriente de Santander
+          </div>
+        </div>
+      </div>
+      
+      <div class="caracteristicas-destacadas">
+        <h3>
+          <i class="fas fa-star"></i>
+          Características Destacadas
+        </h3>
+        <div class="caracteristicas-grid">
+          <div class="caracteristica-card">
+            <div class="caracteristica-icon">
+              <i class="fas fa-thermometer-half"></i>
+            </div>
+            <div class="caracteristica-titulo">Clima Agradable</div>
+            <div class="caracteristica-texto">Temperatura templada característica de la región andina</div>
+          </div>
+          
+          <div class="caracteristica-card">
+            <div class="caracteristica-icon">
+              <i class="fas fa-mountain"></i>
+            </div>
+            <div class="caracteristica-titulo">Paisajes</div>
+            <div class="caracteristica-texto">Hermosos paisajes montañosos y naturales</div>
+          </div>
+          
+          <div class="caracteristica-card">
+            <div class="caracteristica-icon">
+              <i class="fas fa-utensils"></i>
+            </div>
+            <div class="caracteristica-titulo">Gastronomía</div>
+            <div class="caracteristica-texto">Rica tradición culinaria santandereana</div>
+          </div>
+          
+          <div class="caracteristica-card">
+            <div class="caracteristica-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="caracteristica-titulo">Gente Acogedora</div>
+            <div class="caracteristica-texto">Hospitalidad característica de la región</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="turismo-section">
+        <h3>
+          <i class="fas fa-camera"></i>
+          Atractivos Turísticos
+        </h3>
+        <p>Málaga es un importante destino turístico que ofrece múltiples opciones para los visitantes, destacando especialmente por sus actividades de aventura y sus paisajes naturales.</p>
+        
+        <div class="actividades-turisticas">
+          <span class="actividad-tag">
+            <i class="fas fa-tree me-1"></i>
+            Parque Nacional del Chicamocha
+          </span>
+          <span class="actividad-tag">
+            <i class="fas fa-parachute-box me-1"></i>
+            Parapente
+          </span>
+          <span class="actividad-tag">
+            <i class="fas fa-hiking me-1"></i>
+            Senderismo
+          </span>
+          <span class="actividad-tag">
+            <i class="fas fa-camera me-1"></i>
+            Turismo Fotográfico
+          </span>
+          <span class="actividad-tag">
+            <i class="fas fa-landmark me-1"></i>
+            Patrimonio Histórico
+          </span>
+        </div>
+      </div>
+      
+      <div class="text-center">
+        <a href="index.html" class="btn btn-volver">
+          <i class="fas fa-arrow-left me-2"></i>Volver al inicio
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
